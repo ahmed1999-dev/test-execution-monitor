@@ -1,0 +1,34 @@
+name: python tests
+
+on:
+  push:
+    branches: [main]
+  pull_requests:
+    branches: [main]
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+steps:
+      # 1. Download the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Install Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 3. Install uv
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      # 4. Install project and development dependencies
+      - name: Install dependencies
+        run: uv sync --locked
+
+      # 5. Run automated tests
+      - name: Run pytest
+        run: uv run --locked pytest
