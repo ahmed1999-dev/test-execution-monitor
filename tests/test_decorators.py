@@ -1,4 +1,3 @@
-
 import pytest
 
 from test_execution_monitor import SkipTest, log_execution, test_results
@@ -29,17 +28,12 @@ def test_failed_function_is_recorded_and_reraised():
     def sample_test():
         raise ValueError("This test failed for some reasons")
 
-    with pytest.raises(
-        ValueError, match="This test failed for some reasons"
-    ):
+    with pytest.raises(ValueError, match="This test failed for some reasons"):
         sample_test()
 
     assert len(test_results) == 1
     assert test_results[0]["status"] == "FAIL"
-    assert (
-        test_results[0]["failure_reason"]
-        == "This test failed for some reasons"
-    )
+    assert test_results[0]["failure_reason"] == "This test failed for some reasons"
     assert test_results[0]["execution_time"] >= 0
 
 

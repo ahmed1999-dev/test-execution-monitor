@@ -7,12 +7,14 @@ from .report import (
     test_results,
 )
 
-__all__=[
+__all__ = [
     "SkipTest",
     "export_results_to_csv",
     "generate_report",
     "log_execution",
-    "test_results"
+    "test_results",
 ]
+
+
 def main() -> None:
     print("Hello from test-execution-monitor!")
