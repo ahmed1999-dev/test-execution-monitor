@@ -1,6 +1,7 @@
 
-from test_execution_monitor import log_execution, SkipTest, test_results
 import pytest
+
+from test_execution_monitor import SkipTest, log_execution, test_results
 
 
 @pytest.fixture(autouse=True)

@@ -1,5 +1,6 @@
 from functools import wraps
 
+
 def log_execution(func):
     @wraps(func)
     def wrapper(*args,**kwargs):

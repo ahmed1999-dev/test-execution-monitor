@@ -1,8 +1,6 @@
-from test_execution_monitor import  *
-
-import pytest
 import csv
 
+from test_execution_monitor import *
 
 
 def test_report_counts_statuses():

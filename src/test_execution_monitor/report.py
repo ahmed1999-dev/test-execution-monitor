@@ -1,7 +1,6 @@
-from functools import wraps
-import time
 import csv
-
+import time
+from functools import wraps
 
 test_results=[]
 class SkipTest(Exception):
@@ -95,10 +94,10 @@ def test_skipped():
 
 
 for test in [test_login,test_logout,test_payment,test_skipped]:
+
     try:
         test()
-    except  Exception:
-        pass
+    except (AssertionError, ValueError) as error:
+        print(f"Test execution failed: {error}")
 
-print(generate_report(test_results))
-
+    print(generate_report(test_results))    
