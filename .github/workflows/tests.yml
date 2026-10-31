@@ -1,16 +1,18 @@
-name: python tests
 
+name: Python Tests
+
+# When should this workflow run?
 on:
   push:
     branches: [main]
-  pull_requests:
+  pull_request:
     branches: [main]
-
 
 jobs:
   test:
     runs-on: ubuntu-latest
-steps:
+
+    steps:
       # 1. Download the repository code
       - name: Checkout repository
         uses: actions/checkout@v4
